@@ -1,0 +1,25 @@
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: github-kafka
+#   namespace: uvasds-services
+# spec:
+#   parallelism: 1
+#   template:
+#     spec:
+#       containers:
+#       - name: github-kafka
+#         image: ghcr.io/uvasds-systems/kafka-client:1.2
+#         resources:  
+#           limits:   
+#             cpu: "1.0"
+#             memory: 1024Mi
+#           requests: 
+#             cpu: "0.8"
+#             memory: 512Mi
+#         env:
+#         - name: KAFKA_BROKER
+#           value: "kafka-32-2-8-controller-0.kafka-32-2-8-controller-headless.uvasds-services.svc.cluster.local"
+#       restartPolicy: Never
+#   ttlSecondsAfterFinished: 86400
+#   backoffLimit: 4
