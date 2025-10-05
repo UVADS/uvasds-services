@@ -19,7 +19,7 @@ spec:
       - name: streamlit-demo-container
         image: ghcr.io/uvasds-systems/streamlit-demo:{{ .Values.version.streamlit }}
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           requests:
             memory: "1024Mi"
@@ -79,4 +79,4 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: 8080
+      targetPort: 80
