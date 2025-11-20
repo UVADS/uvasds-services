@@ -38,8 +38,8 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.org/websocket-services: "streamlit-service"
-    # acme.cert-manager.io/http01-edit-in-place: "true"
-    # cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
 
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
@@ -53,9 +53,9 @@ metadata:
   name: streamlit-demo-ingress
   namespace: uvasds-services
 spec:
-#   tls:
-#   - hosts:
-#     - streamlit-demo.pods.uvarc.io
+  tls:
+  - hosts:
+    - streamlit-demo.pods.uvarc.io
   rules:
   - host: streamlit-demo.pods.uvarc.io
     http:
