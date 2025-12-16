@@ -6,7 +6,7 @@ metadata:
   labels:
     app: embeddings-data
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: embeddings-data
@@ -17,7 +17,9 @@ spec:
     spec:
       containers:
       - name: embeddings-data-container
-        image: ghcr.io/nmagee/embeddings-data:{{ .Values.version.embeddingsData }}
+        # image: ghcr.io/nmagee/embeddings-data:{{ .Values.version.embeddingsData }}
+        image: ghcr.io/nmagee/embeddings-data:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
@@ -34,17 +36,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+    # acme.cert-manager.io/http01-edit-in-place: "true"
+    # cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
 
   name: embeddings-data-nginx-ingress
   namespace: uvasds-services
 spec:
-  tls:
-  - hosts:
-    - embeddings-data.pods.uvarc.io
+#  tls:
+#  - hosts:
+#    - embeddings-data.pods.uvarc.io
   rules:
-  - host: embeddings-data.pods.uvarc.io
+  - host: research-insights.pods.uvarc.io
     http:
       paths:
       - pathType: Prefix
