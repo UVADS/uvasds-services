@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: privileged-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: monitor
+        image: docker:cli   # must be an image w/ docker built in
+        command: ["docker"] # example CLI command as usual
+        securityContext:
+          privileged: true  # must be 'true' for priv mode
+      restartPolicy: Never
+  backoffLimit: 4
