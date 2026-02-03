@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: embeddings-data-container
-        image: ghcr.io/nmagee/embeddings-data:{{ .Values.version.embeddingsData }}
+        image: ghcr.io/uvads/embeddings-data:{{ .Values.version.embeddingsData }}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
