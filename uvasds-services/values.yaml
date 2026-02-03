@@ -5,4 +5,4 @@ version:
   idGenerator: '1.28'
   buildingApi: '1.6'
   streamlit: '1.3'
-  embeddingsData: '1.2'
+  embeddingsData: '1.3'
