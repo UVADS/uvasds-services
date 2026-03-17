@@ -1,27 +1,27 @@
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: display-this
-  namespace: uvasds-services
-spec:
-  schedule: "0 7 * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: display-this
-            image: ubuntu
-            envFrom:
-            - secretRef:
-                name: nem2p-pat
-            command: ["sleep",  "180"]
-            resources:  
-              limits:   
-                cpu: "0.5"
-                memory: 512Mi
-              requests: 
-                cpu: "0.5"
-                memory: 512Mi
-          restartPolicy: Never
-      ttlSecondsAfterFinished: 86400
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: display-this
+#   namespace: uvasds-services
+# spec:
+#   schedule: "0 7 * * *"
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           containers:
+#           - name: display-this
+#             image: ubuntu
+#             envFrom:
+#             - secretRef:
+#                 name: nem2p-pat
+#             command: ["sleep",  "180"]
+#             resources:  
+#               limits:   
+#                 cpu: "0.5"
+#                 memory: 512Mi
+#               requests: 
+#                 cpu: "0.5"
+#                 memory: 512Mi
+#           restartPolicy: Never
+#       ttlSecondsAfterFinished: 86400
