@@ -16,7 +16,7 @@ spec:
         app: embeddings-data
     spec:
       imagePullSecrets:
-      - name: ghcr-regcred
+      - name: nmagee-ghcr.io-auth
       containers:
       - name: embeddings-data-container
         image: ghcr.io/uvads/embeddings-data:{{ .Values.version.embeddingsData }}
