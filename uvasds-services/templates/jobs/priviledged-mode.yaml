@@ -1,25 +1,25 @@
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: privileged-job
-  namespace: uvasds-services
-spec:
-  template:
-    spec:
-      containers:
-      - name: monitor
-        image: docker:cli   # must be an image w/ docker built in
-        command: ["docker"] # example CLI command as usual
-        resources:
-          limits:
-            cpu: "0.5"
-            memory: "512Mi"
-          requests:
-            cpu: "0.5"
-            memory: "512Mi"
-        securityContext:
-          privileged: true  # must be 'true' for priv mode
-#      nodeSelector:
-#        node: uvasds
-      restartPolicy: Never
-  backoffLimit: 4
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: privileged-job
+#   namespace: uvasds-services
+# spec:
+#   template:
+#     spec:
+#       containers:
+#       - name: monitor
+#         image: docker:cli   # must be an image w/ docker built in
+#         command: ["docker"] # example CLI command as usual
+#         resources:
+#           limits:
+#             cpu: "0.5"
+#             memory: "512Mi"
+#           requests:
+#             cpu: "0.5"
+#             memory: "512Mi"
+#         securityContext:
+#           privileged: true  # must be 'true' for priv mode
+# #      nodeSelector:
+# #        node: uvasds
+#       restartPolicy: Never
+#   backoffLimit: 4
