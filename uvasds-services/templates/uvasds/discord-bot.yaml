@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: discord-bot-container
-        image: ghcr.io/nmagee/discord-bot:{{ .Values.version.discordBot }}
+        image: ghcr.io/nmagee/discord-bot:1.0
         imagePullPolicy: Always
         env:
         - name: DISCORD_TOKEN
