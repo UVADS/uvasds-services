@@ -7,4 +7,4 @@ version:
   streamlit: '1.3'
   embeddingsData: '1.12'
   discordBot: 1.3.1
-  tractorPull: '0.11'
+  tractorPull: '0.12'
